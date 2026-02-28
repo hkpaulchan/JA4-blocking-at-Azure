@@ -28,73 +28,25 @@ Rule 2 – Challenge homepage requests:
 If a request has the same JA4 fingerprint and the URL contains homepage.html, the system sends a JavaScript challenge instead of blocking immediately. Real browsers can usually pass this challenge, but simple bots often fail, so this helps separate humans from bots for the homepage.
 
 
-# AWS to Azure Migration Services (high level inventory)
+# Appendix: What is JA4 Fingerprinting?
+JA4 is the latest TLS client fingerprinting standard that creates a compact, stable identifier from the TLS Client Hello packet. It uniquely identifies client software (browsers, libraries, automation tools) even when attackers rotate IP addresses, User Agents, or other headers.
 
-Below is a comparison of equivalent services between AWS and Azure to assist with the above migration process:
+Key advantages over older JA3:
 
-| AWS | AZURE |
-| --- | --- |
-| Virtual Private Cloud (VPC) | Virtual Network (VNET) |
-| Accounts | Subscriptions |
-| CloudWatch | Azure Monitor |
-| CloudFront | Content Delivery Network |
-| Route 53 | DNS |
-| Codedeploy | Azure DevOps |
-| EC2 | VM |
-| Application Load Balancer | Application Gateway |
-| Auto Scaling | Virtual Machine Scale Sets |
-| S3 | Blob storage |
-| RDS | Database for MySQL | 
-| DynamoDB | Cosmos DB |
-| Lambda | Functions |
-| Certificate Manager | Key Vault  |
-| Web Application Firewall | Application Gateway |
-| SNS | Event Grid |
+More stable across TLS library updates
 
-# Databackup
-Data backup ensures data integrity, prevents loss, and enables seamless recovery during cloud exit, reducing migration risks significantly.
-Below is how Tiger bank perform on Database, S3 and VM for databackup.
+Harder for attackers to spoof
 
-In additional to native AWS backup, Tiger bank will use 3rd party tools such as Rubrik for better Multi-Cloud support, zero-trust achitecture and advacned encryption to backup data.
+Shorter format (e.g. t12d8007h2_ee0b5a6c69b8_0a9c83bf8b96)
 
-#Backup Frequency:
-1. Database(RDS/DynamoDB):
-   - Perform full backups at beginning and daily incremental backup to ensure data integrity.
-   - Enable **Point-in-Time Recovery (PITR)** for continuous backups, allowing you to restore to any specific time within the retention period.
-   - Retain backups for at least 30 days or as per compliance requirements.
+Format breakdown (for t12d8007h2_ee0b5a6c69b8_0a9c83bf8b96):
 
-2. S3 (Object Storage):
-   - Use **continuous replication** for critical data to Azure Blob Storage using Azure Data Box or AWS S3 Replication.
-   - Schedule weekly backups for less frequently accessed data.
-   - Enable versioning in S3 to maintain historical versions of objects.
+t12d8007h2 – TLS version, ciphers, extensions, ALPN
 
-3. VM (EC2 Instances):
-   - Schedule daily snapshots of EC2 instances and attached volumes to capture the VM state.
-   - Retain snapshots for at least 7-14 days, depending on recovery objectives.
-  
-# Handy tools during migration:
-1. AWS Backup:
-   - Automates backup scheduling, retention policies, and recovery for databases, S3, EC2, and other AWS resources.
-   - Centralized management for all AWS backups.
+ee0b5a6c69b8 – SNI hash
 
-2. Azure Migrate:
-   - Facilitates the migration of VMs, databases, and applications from AWS to Azure.
-   - Includes tools for assessment, replication, and cutover.
+0a9c83bf8b96 – full TLS handshake hash
 
-3. Azure Data Box:
-   - A physical device for transferring large datasets securely from AWS to Azure.
-
-4. AWS DataSync:
-   - Automates and accelerates data transfer between AWS and Azure.
-
-5. Azure Site Recovery (ASR):
-   - Ensures business continuity by replicating workloads from AWS to Azure for disaster recovery.
-
-6. Terraform:
-   - Use Terraform scripts to automate infrastructure provisioning and configuration in Azure post-migration.
-  
-7. Gitlab CI/CD:
-   - Use GitLab CI/CD to automate backups, data transfer, infrastructure provisioning, and testing, streamlining the cloud exit process for efficient, reliable, and error-free AWS-to-Azure migration.
-  
-8. Azure Data Factory
-   - enables seamless data migration from S3 to Azure Blob with parallel processing, secure transfer, checkpointing, and large-scale data pipeline orchestration for efficient migration.
+Official reference: 
+JA4+ Fingerprinting Standard
+​
