@@ -43,5 +43,5 @@ t12d8007h2 – TLS version, ciphers, extensions, ALPN
 ee0b5a6c69b8 – SNI hash
 0a9c83bf8b96 – full TLS handshake hash
 
-Official reference: 
+reference: 
 [JA4+ Fingerprinting Standard](https://github.com/FoxIO-LLC/ja4)
