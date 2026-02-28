@@ -19,30 +19,13 @@ Further analysis revealed that most of the malicious traffic shared a single JA4
 
 <img width="2214" height="1159" alt="image" src="https://github.com/user-attachments/assets/522ad414-9629-4841-b8c6-be5a45a25610" />
 
-## Blocking rules in JSON
+## Blocking rules (also attached as JSON)
 
-{
-  "rules": [
-    {
-      "name": "Block-Media-JA4",
-      "priority": 1,
-      "action": "Block",
-      "conditions": {
-        "ja4_fingerprint": "t12d8007h2_ee0b5a6c69b8_0a9c83bf8b96",
-        "request_uri_contains": "media"
-      }
-    },
-    {
-      "name": "JS-Challenge-Homepage-JA4",
-      "priority": 2,
-      "action": "JavaScriptChallenge",
-      "conditions": {
-        "ja4_fingerprint": "t12d8007h2_ee0b5a6c69b8_0a9c83bf8b96",
-        "request_uri_contains": "homepage.html"
-      }
-    }
-  ]
-}
+Rule 1 – Block media requests:
+If a request has the JA4 fingerprint t12d8007h2_ee0b5a6c69b8_0a9c83bf8b96 and the URL contains the word media, the request is blocked. This stops that fingerprint from downloading media files.
+
+Rule 2 – Challenge homepage requests:
+If a request has the same JA4 fingerprint and the URL contains homepage.html, the system sends a JavaScript challenge instead of blocking immediately. Real browsers can usually pass this challenge, but simple bots often fail, so this helps separate humans from bots for the homepage.
 
 
 # AWS to Azure Migration Services (high level inventory)
