@@ -1,10 +1,12 @@
-# mMitigate an economic denial-of-service (EDoS) bot attack targeting Azure JA4 TLS fingerprints
+# Mitigate an economic denial-of-service (EDoS) bot attack targeting Azure JA4 TLS fingerprints
 
 This repository provides a comprehensive guide to understanding and implementing Cloud Exit strategies. Cloud Exit refers to the process of migrating workloads, applications, and data from one cloud provider to another, or even to an on-premises environment. This guide covers key concepts, best practices, and tools to help IT professionals execute a secure, efficient, and cost-effective cloud migration.
 Terraform code is included as a demonstration of the detailed steps involved in implementing a Cloud Exit strategy.
 
 
 ## Diagram
+<img width="2204" height="1158" alt="image" src="https://github.com/user-attachments/assets/59082c22-026c-4fe2-8722-67c804999711" />
+
 ![Cloud Exit by Example](https://github.com/user-attachments/assets/e9f6c682-041d-4be6-8c66-ef7accc2908f)
 
 ## Scenario: Tiger Bank Cloud Exit Use Case
