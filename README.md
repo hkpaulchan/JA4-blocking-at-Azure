@@ -11,9 +11,9 @@ Unlike traditional DDoS attacks that try to take your site down, this attack was
 
 
 ## Scenario: JURASSIC PARK TECHNOLOGY LTD under EDoS attack
-JURASSIC PARK TECHNOLOGY Ltd., hosted its client facing Web Site on Azure using Azure Front Door(AFD) and App Service. Unfortuanltey, they are under EDoS, while the service is still available to end users but the charge of outbound charge from Azure was trippled. Under serious investigation they found that the attack was from distributed IP sources and each with fews hits rate per minutes and hence very difficult to backlist them with IP addresses or rate limit. After further invetigation it found that most of the attack is from a sinlge JA4 fingerprint and targeting path is /media/promote.MP4. 
+JURASSIC PARK TECHNOLOGY Ltd. hosts its client‑facing website on Azure using Azure Front Door (AFD) and App Service. Unfortunately, the site came under an EDoS attack: service remained available, but Azure outbound data charges nearly tripled. Detailed investigation showed the attack originated from highly distributed IP addresses, each generating only a few requests per minute, making IP‑based blocking or simple rate limiting ineffective.
 
-Although the root casued is identified, using Azure frontdoor or AppGateway alone is not able to bock JA4 natively as it not supported. JURASSIC PARK then think a solution for cascading AFD and AppGateway, with AFD detecting the JA4 and use AppGateway to block it or sending challenge to the source.
+Further analysis revealed that most of the malicious traffic shared a single JA4 TLS fingerprint and targeted the path /media/promote.mp4. Although this root cause was identified, neither Azure Front Door nor Application Gateway could natively block JA4 fingerprints. JURASSIC PARK therefore designed a cascaded solution: AFD would surface the JA4 information, and Application Gateway would then use it to either block the traffic or present a challenge to the offending clients.
 
 ## Terraform Structure
 
