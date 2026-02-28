@@ -34,19 +34,13 @@ JA4 is the latest TLS client fingerprinting standard that creates a compact, sta
 Key advantages over older JA3:
 
 More stable across TLS library updates
-
 Harder for attackers to spoof
-
 Shorter format (e.g. t12d8007h2_ee0b5a6c69b8_0a9c83bf8b96)
 
 Format breakdown (for t12d8007h2_ee0b5a6c69b8_0a9c83bf8b96):
-
 t12d8007h2 – TLS version, ciphers, extensions, ALPN
-
 ee0b5a6c69b8 – SNI hash
-
 0a9c83bf8b96 – full TLS handshake hash
 
 Official reference: 
 JA4+ Fingerprinting Standard
-​
