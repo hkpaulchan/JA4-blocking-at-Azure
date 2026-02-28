@@ -36,6 +36,7 @@ Key advantages over older JA3:
 More stable across TLS library updates
 Harder for attackers to spoof
 Shorter format (e.g. t12d8007h2_ee0b5a6c69b8_0a9c83bf8b96)
+<img width="1059" height="514" alt="image" src="https://github.com/user-attachments/assets/f04b278b-231c-4d14-a036-0cdf77736078" />
 
 Format breakdown (for t12d8007h2_ee0b5a6c69b8_0a9c83bf8b96):
 t12d8007h2 – TLS version, ciphers, extensions, ALPN
