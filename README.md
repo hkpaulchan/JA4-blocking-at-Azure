@@ -10,8 +10,10 @@ Unlike traditional DDoS attacks that try to take your site down, this attack was
 
 
 
-## Scenario: Tiger Bank Cloud Exit Use Case
-Tiger Bank Ltd., a financial institution, currently operates its IT systems on AWS. Concerned about rising costs and eager to leverage Azure's integration with OpenAI features for enhanced customer experience, Tiger Bank Ltd. decides to migrate its workloads and applications from AWS to Azure.
+## Scenario: JURASSIC PARK TECHNOLOGY LTD under EDoS attack
+JURASSIC PARK TECHNOLOGY Ltd., hosted its client facing Web Site on Azure using Azure Front Door(AFD) and App Service. Unfortuanltey, they are under EDoS, while the service is still available to end users but the charge of outbound charge from Azure was trippled. Under serious investigation they found that the attack was from distributed IP sources and each with fews hits rate per minutes and hence very difficult to backlist them with IP addresses or rate limit. After further invetigation it found that most of the attack is from a sinlge JA4 fingerprint and targeting path is /media/promote.MP4. 
+
+Although the root casued is identified, using Azure frontdoor or AppGateway alone is not able to bock JA4 natively as it not supported. JURASSIC PARK then think a solution for cascading AFD and AppGateway, with AFD detecting the JA4 and use AppGateway to block it or sending challenge to the source.
 
 ## Terraform Structure
 
