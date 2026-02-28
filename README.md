@@ -1,7 +1,8 @@
 # Mitigate an economic denial-of-service (EDoS) bot attack targeting Azure JA4 TLS fingerprints
 
-This repository provides a comprehensive guide to understanding and implementing Cloud Exit strategies. Cloud Exit refers to the process of migrating workloads, applications, and data from one cloud provider to another, or even to an on-premises environment. This guide covers key concepts, best practices, and tools to help IT professionals execute a secure, efficient, and cost-effective cloud migration.
-Terraform code is included as a demonstration of the detailed steps involved in implementing a Cloud Exit strategy.
+This repository documents a real-world case study from JJURASSIC PARK TECHNOLOGY LTD on how to detect and mitigate an economic denial-of-service (EDoS) bot attack targeting Azure Front Door using JA4 TLS fingerprints, while cascading protection through Azure Front Door (AFD) and Azure Application Gateway WAF.
+Unlike traditional DDoS attacks that try to take your site down, this attack was designed to inflate CDN and data transfer costs without overloading the origin, exploiting cached static assets and globally distributed IPs.
+
 
 
 ## Diagram
