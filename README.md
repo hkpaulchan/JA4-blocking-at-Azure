@@ -19,24 +19,31 @@ Further analysis revealed that most of the malicious traffic shared a single JA4
 
 <img width="2214" height="1159" alt="image" src="https://github.com/user-attachments/assets/522ad414-9629-4841-b8c6-be5a45a25610" />
 
-## Terraform Structure
+## Blocking rules in JSON
 
-According to best practices, the terraform structure is as follows:
-```
-├── environments
-│   ├── dev
-│   │   ├── main.tf
-│   │   ├── terraform-dev.tfvars
-│   │   └── variables.tf
-│   ├── prod
-│   │   ├── main.tf
-│   │   ├── terraform-prod.tfvars
-│   │   └── variables.tf
-│   └── readme.md
-├── modules
-│   └── {LIST_OF_ALL_MODULES}
-└── Readme.md
-```
+{
+  "rules": [
+    {
+      "name": "Block-Media-JA4",
+      "priority": 1,
+      "action": "Block",
+      "conditions": {
+        "ja4_fingerprint": "t12d8007h2_ee0b5a6c69b8_0a9c83bf8b96",
+        "request_uri_contains": "media"
+      }
+    },
+    {
+      "name": "JS-Challenge-Homepage-JA4",
+      "priority": 2,
+      "action": "JavaScriptChallenge",
+      "conditions": {
+        "ja4_fingerprint": "t12d8007h2_ee0b5a6c69b8_0a9c83bf8b96",
+        "request_uri_contains": "homepage.html"
+      }
+    }
+  ]
+}
+
 
 # AWS to Azure Migration Services (high level inventory)
 
