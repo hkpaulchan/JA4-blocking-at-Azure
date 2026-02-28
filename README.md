@@ -43,4 +43,4 @@ ee0b5a6c69b8 – SNI hash
 0a9c83bf8b96 – full TLS handshake hash
 
 Official reference: 
-JA4+ Fingerprinting Standard
+[JA4+ Fingerprinting Standard](https://github.com/FoxIO-LLC/ja4)
