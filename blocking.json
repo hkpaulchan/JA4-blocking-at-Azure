@@ -1,0 +1,22 @@
+{
+  "rules": [
+    {
+      "name": "Block-Media-JA4",
+      "priority": 1,
+      "action": "Block",
+      "conditions": {
+        "ja4_fingerprint": "t12d8007h2_ee0b5a6c69b8_0a9c83bf8b96",
+        "request_uri_contains": "media"
+      }
+    },
+    {
+      "name": "JS-Challenge-Homepage-JA4",
+      "priority": 2,
+      "action": "JavaScriptChallenge",
+      "conditions": {
+        "ja4_fingerprint": "t12d8007h2_ee0b5a6c69b8_0a9c83bf8b96",
+        "request_uri_contains": "homepage.html"
+      }
+    }
+  ]
+}
